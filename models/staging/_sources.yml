@@ -1,0 +1,10 @@
+sources:
+  - name: raw
+    description: Aribnb raw dataset
+    database: AIRBNB_DB
+    schema: raw
+    tables:
+      - name: LISTINGS
+      - name: REVIEWS
+      - name: CALENDAR
+    
