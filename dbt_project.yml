@@ -22,3 +22,7 @@ models:
       +schema: staging
     marts:
       +materialized: table
+
+      intermediate:
+        +materialized: table  # (or view/table depending on your preference)
+        +schema: intermediate
