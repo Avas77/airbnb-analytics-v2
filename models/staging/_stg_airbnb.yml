@@ -1,0 +1,25 @@
+models:
+  - name: stg_listings
+    description: one listings per row
+    columns:
+      - name: listing_id
+        description: primary key
+        data_tests:
+          - unique
+          - not_null
+  - name: stg_reviews
+    columns:
+      - name: review_id
+        tests: 
+          - unique
+          - not_null
+      - name: listing_id
+        tests:
+          - not_null 
+  - name: stg_calendar
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: 
+            combination_of_columns:
+              - listing_id
+              - calendar_date
