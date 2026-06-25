@@ -1,0 +1,28 @@
+models:
+  - name: dim_listings
+    description: Listing dimension containing descriptive attributes for Airbnb listings.
+    columns:
+      - name: listing_id
+        description: primary key
+        tests:
+          - unique
+          - not_null
+  - name: fct_listing_popularity
+    description: Listing Popularity metrics
+    columns: 
+      - name: listing_id
+        tests:
+          - unique
+          - not_null
+
+          - relationships:
+              arguments:
+                to: ref('dim_listings')
+                field: listing_id
+  - name: dim_hosts
+    description: Host Information Dimension Table
+    columns: 
+      - name: host_id
+        tests:
+          - unique
+          - not_null
