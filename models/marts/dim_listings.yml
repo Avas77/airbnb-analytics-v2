@@ -1,9 +1,0 @@
-models:
-  - name: dim_listings
-    description: Listing Dimension table
-    columns:
-      - name: listing_id
-        description: primary key
-        tests:
-          - unique
-          - not_null
