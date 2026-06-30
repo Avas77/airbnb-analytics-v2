@@ -1,0 +1,20 @@
+models:
+  - name: mart_host_360
+    description: >
+      A unified business view of Airbnb hosts.
+      One row per host containing profile, portfolio,
+      quality, and availability metrics.
+    columns:
+      - name: host_id
+        description: Unique host identifier.
+        tests:
+          - unique
+          - not_null
+      - name: listing_count
+        description: Number of active listings owned by the host.
+      - name: avg_rating
+        description: Average review score across all listings.
+      - name: occupancy_rate
+        description: Percentage of calendar days marked as booked.
+      - name: review_count
+        description: Total number of reviews across all listings.
