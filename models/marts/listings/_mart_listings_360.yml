@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: mart_listings_360
+    description: >
+      A granular business view of Airbnb listings. 
+      One row per unique listing containing core listing attributes,
+      historical review scores, and rolling availability/occupancy metrics.
+    columns:
+      - name: listing_id
+        description: Unique identifier for each Airbnb listing. Primary key.
+        tests:
+          - unique
+          - not_null
+
+      - name: host_id
+        description: Identifier for the host who owns the listing. Foreign key to mart_host_360.
+        tests:
+          - not_null
+
+      - name: listing_name
+        description: The public-facing name or title of the listing.
+
+      - name: room_type
+        description: Category of space being offered (e.g., Entire home/apt, Private room, Shared room).
+
+      - name: property_type
+        description: Specific architectural type of the property (e.g., Apartment, House, Condo, Loft).
+
+      - name: neighborhood
+        description: The localized neighborhood where the listing is physically located.
+
+      - name: avg_rating
+        description: The average review rating score received by this listing.
+
+      - name: review_count
+        description: The total number of reviews submitted for this specific listing.
+
+      - name: available_days
+        description: Total number of calendar days this listing is set to visible/available for booking.
+
+      - name: booked_days
+        description: Total number of calendar days this listing has been successfully booked by guests.
+
+      - name: occupancy_rate
+        description: Calculated percentage of available calendar days that were actually booked.
