@@ -4,7 +4,7 @@ with listing_dim as (
 ),
 review_metrics as (
     select *
-    from {{ ref('int_review_metrics') }}
+    from {{ ref('int_listing_review_metrics') }}
 ),
 listings_popularity as (
     select
@@ -15,8 +15,8 @@ listings_popularity as (
         listing_dim.borough,
         listing_dim.property_type,
         listing_dim.room_type,
-        review_metrics.total_reviews,
-        review_metrics.earliest_review_date,
+        review_metrics.review_count,
+        review_metrics.first_review_date,
         review_metrics.latest_review_date
     from listing_dim
     left join review_metrics
