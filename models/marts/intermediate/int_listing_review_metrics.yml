@@ -1,0 +1,11 @@
+models:
+  - name: int_listing_review_metrics
+    description: Review metrics for analysis
+    columns:
+      - name: listing_id
+        tests:
+          - unique
+          - not_null
+      - name: review_count
+        tests:
+          - not_null
