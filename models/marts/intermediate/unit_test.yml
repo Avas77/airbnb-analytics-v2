@@ -1,0 +1,20 @@
+unit_tests:
+  - name: test_is_valid_review_score
+    description: "Check my is_valid_review_score logic captures all known edge cases"
+    model: int_listing_metrics
+    given:
+      - input: ref('stg_listings')
+        format: dict
+        rows:
+          # Replace 'review_scores_rating' with whatever column your SQL actually evaluates
+          - {listing_id: 1, review_scores_rating: 1}
+          - {listing_id: 2, review_scores_rating: 2}
+          - {listing_id: 3, review_scores_rating: 3}
+          - {listing_id: 4, review_scores_rating: 4}
+    expect:
+      format: dict
+      rows:
+        - {listing_id: 1, rating_category: Needs Improvement}
+        - {listing_id: 2, rating_category: Needs Improvement}
+        - {listing_id: 3, rating_category: Needs Improvement}
+        - {listing_id: 4, rating_category: Average}
