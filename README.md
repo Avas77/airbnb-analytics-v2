@@ -23,35 +23,7 @@ Rather than allowing every analyst to write different SQL queries, this project 
 
 ## Architecture
 
-```text
-                Airbnb Dataset
-                      │
-                      ▼
-                  Amazon S3
-                      │
-                      ▼
-                 Snowflake RAW
-                      │
-                      ▼
-                dbt Staging Layer
-                      │
-                      ▼
-            dbt Intermediate Models
-                      │
-                      ▼
-          Dimensions & Business Metrics
-                      │
-                      ▼
-        Host360      Listing360
-                │        │
-                └────────┘
-                      │
-                      ▼
-        Executive Mart (Neighborhood Summary)
-                      │
-                      ▼
-               Power BI Dashboards
-```
+![Architecture Diagram](output/complete-architecture.png)
 
 ---
 
